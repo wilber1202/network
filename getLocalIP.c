@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     int num;
     int i = 0;
      
-    s = socket(PF_INET, SOCK_DGRAM, 0);
+    s = socket(AF_INET, SOCK_DGRAM, 0);
     conf.ifc_len = BUFSIZ;
     conf.ifc_buf = buff;
      
