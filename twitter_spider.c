@@ -13,6 +13,18 @@
 #define MAIL_CMD1               "cat /tmp/message | mail -s Twitter_update 13967188560@139.com"
 #define MAIL_CMD2               "cat /tmp/message | mail -s Twitter_update 13757109183@139.com"
 #define MAIL_CMD3               "cat /tmp/message | mail -s Twitter_update 13656680967@139.com"
+#define MAIL_CMD4               "cat /tmp/message | mail -s Twitter_update 13588059483@139.com"
+#define MAIL_CMD5               "cat /tmp/message | mail -s Twitter_update 13958114072@139.com"
+#define MAIL_CMD6               "cat /tmp/message | mail -s Twitter_update 13732287363@139.com"
+#define MAIL_CMD7               "cat /tmp/message | mail -s Twitter_update 13656814604@139.com"
+#define MAIL_CMD8               "cat /tmp/message | mail -s Twitter_update 13456998654@139.com"
+#define MAIL_CMD9               "cat /tmp/message | mail -s Twitter_update 13588868751@139.com"
+#define MAIL_CMD10              "cat /tmp/message | mail -s Twitter_update 13567191300@139.com"
+#define MAIL_CMD11              "cat /tmp/message | mail -s Twitter_update 15967119431@139.com"
+#define MAIL_CMD12              "cat /tmp/message | mail -s Twitter_update 13429108961@139.com"
+#define MAIL_CMD13              "cat /tmp/message | mail -s Twitter_update 18258245832@139.com"
+#define MAIL_CMD14              "cat /tmp/message | mail -s Twitter_update 13805760000@139.com"
+#define MAIL_CMD15              "cat /tmp/message | mail -s Twitter_update 18405024476@139.com"
 #define UPDATE_LABLE            "<div class=\"js-tweet-text-container\">"
 
 char *g_message;
@@ -139,6 +151,30 @@ void report(void) {
     (void)system(MAIL_CMD2);
     (void)sleep(3);
     (void)system(MAIL_CMD3);
+    (void)sleep(3);
+    (void)system(MAIL_CMD4);
+    (void)sleep(3);
+    (void)system(MAIL_CMD5);
+    (void)sleep(3);
+    (void)system(MAIL_CMD6);
+    (void)sleep(3);
+    (void)system(MAIL_CMD7);
+    (void)sleep(3);
+    (void)system(MAIL_CMD8);
+    (void)sleep(3);
+    (void)system(MAIL_CMD9);
+    (void)sleep(3);
+    (void)system(MAIL_CMD10);
+    (void)sleep(3);
+    (void)system(MAIL_CMD11);
+    (void)sleep(3);
+    (void)system(MAIL_CMD12);
+    (void)sleep(3);
+    (void)system(MAIL_CMD13);
+    (void)sleep(3);
+    (void)system(MAIL_CMD14);
+    (void)sleep(3);
+    (void)system(MAIL_CMD15);
 
     syslog(LOG_INFO, "twitter update has been mailed\n");
 
