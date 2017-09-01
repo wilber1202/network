@@ -8,6 +8,7 @@
 #define SIZE_2M                 (2 * 1024 * 1024)
 #define RM_HTML                 "rm -rf /tmp/fangongheike.html"
 #define RM_MESSAGE              "rm -rf /tmp/message"
+#define RM_MONITOR              "rm -rf /tmp/tengine/html/twitter/notice.html"
 #define ACCESS_CMD              "wget -e \"https_proxy=http://127.0.0.1:8118\" https://twitter.com/fangongheike -t 1 -q -O /tmp/fangongheike.html" \
 								" --dns-timeout=3 --connect-timeout=4 --read-timeout=240"
 #define MAIL_CMD1               "cat /tmp/message | mail -s Twitter_update 13967188560@139.com"
@@ -127,10 +128,8 @@ int scan(void) {
 
 void report(void) {
     int size;
-    char *key;
-    char key_str[32] = {0};
     FILE *fp = NULL;
-    
+
     fp = fopen("/tmp/message", "w");
     if (NULL == fp) {
         return;
@@ -143,8 +142,8 @@ void report(void) {
     }
 
     fflush(fp);
-
     fclose(fp);
+    fp = NULL;
 
     (void)system(MAIL_CMD1);
     (void)sleep(3);
@@ -175,9 +174,26 @@ void report(void) {
     (void)system(MAIL_CMD14);
     (void)sleep(3);
     (void)system(MAIL_CMD15);
-
+    
     syslog(LOG_INFO, "twitter update has been mailed\n");
 
+    (void)system(RM_MONITOR);
+ 
+    fp = fopen("/tmp/tengine/html/twitter/notice.html", "w");
+    if (NULL == fp) {
+        return;
+    }
+    
+    size = fwrite(g_message, strlen(g_message), 1, fp);
+    if (1 != size) {
+        fclose(fp);
+        return;
+    }
+
+    fflush(fp);
+    fclose(fp);
+    fp = NULL;
+    
     return;
 }
 
